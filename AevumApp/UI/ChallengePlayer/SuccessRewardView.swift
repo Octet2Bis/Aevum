@@ -2,8 +2,20 @@ import SwiftUI
 
 // MARK: - Écran de Succès, Récompense & Déblocage 15 min
 public struct SuccessRewardView: View {
-    public let longevityProtocol: LongevityProtocol
+    public let title: String
+    public let xpEarned: Int
     public var onDismiss: () -> Void
+
+    /// A completed challenge of any kind: a longevity protocol or a mini happening.
+    public init(challengeName: String, xpEarned: Int, onDismiss: @escaping () -> Void) {
+        self.title = challengeName
+        self.xpEarned = xpEarned
+        self.onDismiss = onDismiss
+    }
+
+    public init(longevityProtocol: LongevityProtocol, onDismiss: @escaping () -> Void) {
+        self.init(challengeName: longevityProtocol.title, xpEarned: longevityProtocol.xpReward, onDismiss: onDismiss)
+    }
     
     public var body: some View {
         ZStack {
@@ -39,7 +51,7 @@ public struct SuccessRewardView: View {
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     
-                    Text(longevityProtocol.title)
+                    Text(title)
                         .font(.system(size: 14, weight: .medium, design: .rounded))
                         .foregroundColor(AevumTheme.textSecondary)
                 }
@@ -49,7 +61,7 @@ public struct SuccessRewardView: View {
                     VStack(spacing: 16) {
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("+\(longevityProtocol.xpReward) XP VITALITÉ")
+                                Text("+\(xpEarned) XP VITALITÉ")
                                     .font(.system(size: 16, weight: .bold, design: .rounded))
                                     .foregroundColor(AevumTheme.cyanAccent)
                                 Text("Score de longévité renforcé")
