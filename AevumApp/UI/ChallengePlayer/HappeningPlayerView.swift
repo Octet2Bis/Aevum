@@ -63,7 +63,7 @@ public struct HappeningPlayerView: View {
                 
                 // Corps du jeu
                 Spacer()
-                switch happening.type {
+                switch happening.interactionType {
                 case .rapidTapping:
                     ChalkboardGameView(linesCopied: $linesCopied, onComplete: triggerSuccess)
                 case .fingerSculptor:
@@ -72,10 +72,10 @@ public struct HappeningPlayerView: View {
                     ShrimpCameraGameView(isPostureFixed: $isPostureFixed, onComplete: triggerSuccess)
                 default:
                     VStack(spacing: 12) {
-                        Text("🎯 \(happening.anatomyTarget)")
+                        Text("🎯 \(happening.targetAnatomy)")
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(Color(hex: "#34D399"))
-                        Text("⚡ \(happening.immediateBenefit)")
+                        Text("⚡ \(happening.physiologicalBenefit)")
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(Color(hex: "#F4EFE6").opacity(0.8))
                         Button(action: triggerSuccess) {
