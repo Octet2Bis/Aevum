@@ -1,23 +1,21 @@
 import SwiftUI
+import UIKit
 
 // MARK: - Aevum Design System & Dynamic Theme Tokens (Light & Dark)
 public struct AevumTheme {
+    /// Une couleur qui suit le thème du système (clair / sombre) sans lire `colorScheme` dans la vue.
+    static func adaptive(light: Color, dark: Color) -> Color {
+        Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light) })
+    }
+
     // Mode Lumineux (Daylight Luxury) vs Sombre
-    public static func bgPrimary(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.03, green: 0.04, blue: 0.07) : Color(red: 0.97, green: 0.98, blue: 0.99)
-    }
+    public static let bgPrimary = adaptive(light: Color(red: 0.97, green: 0.98, blue: 0.99), dark: Color(red: 0.03, green: 0.04, blue: 0.07))
     
-    public static func bgSecondary(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.05, green: 0.08, blue: 0.13) : Color(red: 0.95, green: 0.96, blue: 0.98)
-    }
+    public static let bgSecondary = adaptive(light: Color(red: 0.95, green: 0.96, blue: 0.98), dark: Color(red: 0.05, green: 0.08, blue: 0.13))
     
-    public static func bgCard(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.08, green: 0.11, blue: 0.18) : Color.white
-    }
+    public static let bgCard = adaptive(light: Color.white, dark: Color(red: 0.08, green: 0.11, blue: 0.18))
     
-    public static func cardBorder(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.12, green: 0.17, blue: 0.27) : Color(red: 0.89, green: 0.91, blue: 0.94)
-    }
+    public static let cardBorder = adaptive(light: Color(red: 0.89, green: 0.91, blue: 0.94), dark: Color(red: 0.12, green: 0.17, blue: 0.27))
     
     // Accents Lumineux
     public static let cyanAccent = Color(red: 0.01, green: 0.52, blue: 0.78)     // #0284C7
@@ -27,17 +25,11 @@ public struct AevumTheme {
     public static let roseAccent = Color(red: 0.88, green: 0.11, blue: 0.28)     // #E11D48
     
     // Typographie & Textes
-    public static func textPrimary(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color.white : Color(red: 0.06, green: 0.09, blue: 0.16)
-    }
+    public static let textPrimary = adaptive(light: Color(red: 0.06, green: 0.09, blue: 0.16), dark: Color.white)
     
-    public static func textSecondary(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.58, green: 0.64, blue: 0.72) : Color(red: 0.28, green: 0.33, blue: 0.41)
-    }
+    public static let textSecondary = adaptive(light: Color(red: 0.28, green: 0.33, blue: 0.41), dark: Color(red: 0.58, green: 0.64, blue: 0.72))
     
-    public static func textMuted(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? Color(red: 0.39, green: 0.45, blue: 0.55) : Color(red: 0.58, green: 0.64, blue: 0.72)
-    }
+    public static let textMuted = adaptive(light: Color(red: 0.58, green: 0.64, blue: 0.72), dark: Color(red: 0.39, green: 0.45, blue: 0.55))
     
     // Dégradés
     public static let vitalityGradient = LinearGradient(
@@ -68,8 +60,8 @@ public struct BentoCardModifier: ViewModifier {
     public var customBorderColor: Color?
     
     public func body(content: Content) -> some View {
-        let border = customBorderColor ?? AevumTheme.cardBorder(for: colorScheme)
-        let bg = AevumTheme.bgCard(for: colorScheme)
+        let border = customBorderColor ?? AevumTheme.cardBorder
+        let bg = AevumTheme.bgCard
         let shadowColor = colorScheme == .dark ? Color.black.opacity(0.35) : Color(red: 0.06, green: 0.09, blue: 0.16).opacity(0.06)
         
         content
@@ -86,5 +78,18 @@ public struct BentoCardModifier: ViewModifier {
 public extension View {
     func bentoCardStyle(borderColor: Color? = nil) -> some View {
         self.modifier(BentoCardModifier(customBorderColor: borderColor))
+    }
+}
+
+// MARK: - Couleurs hexadécimales (« #1B3B2B » ou « 1B3B2B », 6 chiffres)
+public extension Color {
+    init(hex: String) {
+        let digits = hex.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
+        let value = UInt64(digits, radix: 16) ?? 0
+        self.init(
+            red: Double((value >> 16) & 0xFF) / 255,
+            green: Double((value >> 8) & 0xFF) / 255,
+            blue: Double(value & 0xFF) / 255
+        )
     }
 }

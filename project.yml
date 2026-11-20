@@ -50,6 +50,13 @@ targets:
     platform: iOS
     sources:
       - path: Extensions/AevumShield
+    info:
+      path: Extensions/AevumShield/Info.plist
+      properties:
+        CFBundleDisplayName: AevumShield
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettingsUI.shield-configuration-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldConfigurationExtension
     dependencies:
       - sdk: ManagedSettingsUI.framework
       - sdk: ManagedSettings.framework
@@ -59,6 +66,13 @@ targets:
     platform: iOS
     sources:
       - path: Extensions/AevumShieldAction
+    info:
+      path: Extensions/AevumShieldAction/Info.plist
+      properties:
+        CFBundleDisplayName: AevumShieldAction
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettings.shield-action-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldActionExtension
     dependencies:
       - sdk: ManagedSettings.framework
 
@@ -67,6 +81,13 @@ targets:
     platform: iOS
     sources:
       - path: Extensions/AevumActivityMonitor
+    info:
+      path: Extensions/AevumActivityMonitor/Info.plist
+      properties:
+        CFBundleDisplayName: AevumActivityMonitor
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.deviceactivity.monitor-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).DeviceActivityMonitorExtension
     dependencies:
       - sdk: DeviceActivity.framework
       - sdk: ManagedSettings.framework

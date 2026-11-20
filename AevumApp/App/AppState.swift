@@ -22,7 +22,8 @@ public class AppState: ObservableObject {
     @Published public var completedProtocolForReward: LongevityProtocol? = nil
     
     // Services
-    public let screenTimeManager = ScreenTimeManager.shared
+    // `var` : le sélecteur d'apps Screen Time écrit dans sa sélection par un binding.
+    public var screenTimeManager = ScreenTimeManager.shared
     public let healthKitManager = HealthKitManager.shared
     
     private let profileKey = "aevum_user_profile"
