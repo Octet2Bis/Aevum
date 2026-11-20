@@ -1,0 +1,19 @@
+/* ==========================================================================
+   AEVUM — FEUILLE DE STYLE DU SIMULATEUR WEB
+
+   Ce fichier ne contient plus de règles : il assemble les modules dans
+   l'ordre exact de l'ancien index.css monolithique (5 769 lignes).
+
+   La cascade CSS dépend de cet ordre. Réordonner un import change le rendu.
+   ========================================================================== */
+
+@import url("styles/01_fondations.css");
+@import url("styles/02_chassis.css");
+@import url("styles/03_ecrans_onboarding.css");
+@import url("styles/04_ecran_dashboard.css");
+@import url("styles/05_ecrans_protocole.css");
+@import url("styles/06_composants_transit.css");
+@import url("styles/07_grille_vivante.css");
+@import url("styles/08_music_os.css");
+@import url("styles/09_agave_modales.css");
+@import url("styles/10_mobile_natif.css");

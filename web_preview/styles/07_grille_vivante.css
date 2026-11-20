@@ -1,0 +1,320 @@
+/* 07_grille_vivante.css — Grille vivante et transit ambiant
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   LE SYSTÈME DE GRILLE VIVANTE (LIVING GRID & AMBIENT TRANSIT)
+   ========================================================================== */
+.living-grid-screen {
+  position: relative;
+  overflow: hidden;
+  background: #090A0D;
+  padding: 0 !important;
+}
+
+.grid-ambient-video-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.28;
+  overflow: hidden;
+}
+
+.ambient-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.7) blur(2.5px);
+}
+
+.ambient-video-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 10, 13, 0.7) 0%, rgba(9, 10, 13, 0.92) 50%, #090A0D 100%);
+}
+
+.living-grid-scrollable {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  overflow-y: auto;
+  padding: 42px 14px 24px 14px;
+}
+
+.living-grid-hero {
+  margin-bottom: 14px;
+}
+
+.station-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pulse-red-node {
+  color: #E6392F;
+  font-size: 10px;
+  animation: pulse-node 1.5s infinite;
+}
+
+.station-code {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F4EFE6;
+}
+
+.station-track-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  background: #00A86B;
+  color: #FFFFFF;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.you-are-here-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #F4EFE6;
+  margin: 8px 0 4px 0;
+  text-transform: uppercase;
+}
+
+.calm-guidance-txt {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+.living-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid-tile {
+  background: rgba(18, 20, 25, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 12px 14px;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.grid-tile:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.tile-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tile-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.red-tag { color: #E6392F; }
+.yellow-tag { color: #F5B800; }
+.green-tag { color: #00A86B; }
+
+.tile-badge-time, .tile-badge-streak, .tile-badge-lvl {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F4EFE6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Mini-Jeu dans la Grille */
+.tile-wario-chalkboard {
+  background: #111814;
+  border: 1px solid #1E2D24;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.chalk-board-mini {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 10.5px;
+  color: #E2E8F0;
+  line-height: 1.4;
+}
+
+.chalk-board-mini .written {
+  color: #F4EFE6;
+}
+
+.chalk-board-mini .placeholder {
+  color: rgba(244, 239, 230, 0.35);
+  font-style: italic;
+}
+
+.chalk-stamp-mini {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  border: 2px solid #E6392F;
+  color: #E6392F;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(17, 24, 20, 0.9);
+}
+
+.btn-tile-tap {
+  width: 100%;
+  background: #E6392F;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  padding: 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #991B1B;
+  transition: all 0.1s ease;
+}
+
+.btn-tile-tap:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #991B1B;
+}
+
+/* Fourche Métro SVG */
+.metro-fork-svg-box {
+  background: #101216;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 6px;
+  margin: 6px 0;
+}
+
+.metro-fork-svg {
+  width: 100%;
+  height: 65px;
+}
+
+.fork-active-pulse {
+  animation: pulse-node 1.5s infinite;
+}
+
+.fork-status-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8.5px;
+  color: rgba(244, 239, 230, 0.6);
+  margin-top: 4px;
+}
+
+.fork-status-row strong {
+  color: #E6392F;
+}
+
+.fork-xp {
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 800;
+  color: #F5B800;
+}
+
+/* Panneaux d'Aiguillage (Zéro Navbar Fixe) */
+.transit-direction-sign-board {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sign-direction-tile {
+  background: #14161B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.sign-direction-tile:hover {
+  background: #1A1D24;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(2px);
+}
+
+.sign-arrow-icon {
+  font-size: 14px;
+  color: #F5B800;
+  font-weight: 900;
+}
+
+.sign-tile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-tile-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #F4EFE6;
+}
+
+.sign-tile-sub {
+  font-size: 9px;
+  color: rgba(244, 239, 230, 0.45);
+}
+
+.sign-tile-code {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F4EFE6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sign-shield-tile .sign-arrow-icon {
+  color: #E6392F;
+}
+
+.sign-shield-tile .sign-tile-code {
+  background: rgba(230, 57, 47, 0.2);
+  color: #E6392F;
+  border: 1px solid rgba(230, 57, 47, 0.4);
+}

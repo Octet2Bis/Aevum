@@ -1,0 +1,1183 @@
+/* 05_ecrans_protocole.css — Écrans 5 à 8 : player, shield, happenings, vault
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   ÉCRAN 5 : LIVE PROTOCOL PLAYER (AQUARELLE VIVANTE & COMPTE À REBOURS)
+   ========================================================================== */
+.player-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.btn-close-player {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.btn-close-player:hover {
+  background: var(--surface-interactive);
+}
+
+.player-proto-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.player-space {
+  width: 26px;
+}
+
+.player-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-causal-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.player-causal-target {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--surface-elevated);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+}
+
+.player-causal-source {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface-card);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  font-style: italic;
+}
+
+.breathing-orb-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+#breathing-watercolor-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.breathing-center-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phase-text {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.phase-timer {
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.total-timer {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.player-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.btn-player-action {
+  width: 100%;
+  background: var(--accent-red);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-player-action:hover {
+  background: var(--accent-red-hover);
+}
+
+/* ==========================================================================
+   ÉCRAN 6 : SHIELD OVERLAY (FRICTION POSITIVE SCREEN TIME)
+   ========================================================================== */
+.shield-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 9, 11, 0.98);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.shield-overlay.hidden {
+  display: none !important;
+}
+
+.shield-icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-red-subtle);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EF4444;
+  margin-bottom: 10px;
+}
+
+.shield-title-lg {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.shield-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  max-width: 240px;
+}
+
+.shield-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-shield-accept {
+  width: 100%;
+  background: var(--accent-red);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 9px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-shield-accept:hover {
+  background: var(--accent-red-hover);
+}
+
+.btn-shield-delay {
+  width: 100%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-shield-delay:hover {
+  background: var(--surface-interactive);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR INFÉRIEURE (TAB BAR)
+   ========================================================================== */
+.app-tabbar {
+  height: 48px;
+  background: var(--surface-card);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+  z-index: 50;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 8.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-secondary);
+}
+
+.tab-btn.active {
+  color: var(--accent-red);
+}
+
+/* ==========================================================================
+   CARTE 0 : DAILY SHOT — LA DOSE D'ESPRIT DU JOUR
+   ========================================================================== */
+.daily-shot-card {
+  background: linear-gradient(135deg, #1B1E24 0%, #121418 100%);
+  border: 1px solid rgba(245, 184, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(245, 184, 0, 0.08), var(--highlight-top);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.daily-shot-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.daily-shot-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #F5B800;
+  text-transform: uppercase;
+}
+
+.daily-shot-streak {
+  font-size: 9px;
+  font-weight: 800;
+  color: #F4EFE6;
+  background: rgba(245, 184, 0, 0.15);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.daily-shot-body {
+  margin-bottom: 10px;
+}
+
+.daily-shot-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #F4EFE6;
+  font-style: italic;
+}
+
+.daily-shot-author {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: rgba(244, 239, 230, 0.45);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.daily-shot-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-daily-shot-action {
+  flex: 1;
+  background: #F5B800;
+  color: #0B0B0C;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 6px 10px;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn-daily-shot-action:active {
+  transform: scale(0.97);
+}
+
+.btn-daily-shot-share {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F4EFE6;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.btn-daily-shot-share:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   ÉCRAN 7 : LECTEUR DE MINI-HAPPENINGS WARIO-WARE
+   ========================================================================== */
+.happening-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
+.happening-countdown-badge {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 13px;
+  font-weight: 900;
+  color: #F5B800;
+  background: rgba(245, 184, 0, 0.15);
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 184, 0, 0.3);
+}
+
+.happening-mode-selector {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.h-mode-btn {
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(244, 239, 230, 0.6);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.h-mode-btn.active {
+  background: #F4EFE6;
+  color: #0B0B0C;
+  border-color: #F4EFE6;
+}
+
+.happening-interactive-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  margin: 10px 0;
+}
+
+.game-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* JEU 1 : TABLEAU NOIR */
+.game-chalkboard {
+  width: 100%;
+}
+
+.chalkboard-frame {
+  width: 100%;
+  min-height: 180px;
+  background: #153123;
+  border: 6px solid #B89758;
+  border-radius: 12px;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7), 0 6px 16px rgba(0,0,0,0.4);
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chalk-dust-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 30%, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.chalkboard-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chalk-line {
+  font-family: 'Bebas Neue', 'Barlow Condensed', cursive, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.chalk-line.written {
+  color: #FFFFFF;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  animation: chalkWrite 0.2s ease-out;
+}
+
+.chalk-line.placeholder {
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+
+@keyframes chalkWrite {
+  0% { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.chalk-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg) scale(1);
+  border: 4px solid #E6392F;
+  color: #E6392F;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  padding: 6px 20px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  background: rgba(11, 11, 12, 0.85);
+  box-shadow: 0 0 20px rgba(230, 57, 47, 0.4);
+  animation: stampImpact 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes stampImpact {
+  0% { transform: translate(-50%, -50%) rotate(-25deg) scale(2.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) rotate(-12deg) scale(1); opacity: 1; }
+}
+
+.btn-chalk-tap {
+  width: 100%;
+  margin-top: 12px;
+  background: #F4EFE6;
+  color: #0B0B0C;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 10px;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(244, 239, 230, 0.2);
+}
+
+/* JEU 2 : SCULPTEUR DE PHALANGES */
+.interactive-hand-svg-box {
+  width: 100%;
+  max-width: 240px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hand-vector-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.finger-group {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.finger-group:hover .finger-rect {
+  fill: #FF5A4E;
+}
+
+.finger-group.folded {
+  transform: translateY(35px) scaleY(0.4);
+}
+
+.finger-group.folded .finger-rect {
+  fill: #3A3F4A;
+}
+
+.finger-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  fill: #F4EFE6;
+  pointer-events: none;
+}
+
+.finger-sculptor-instructions {
+  font-size: 11px;
+  color: rgba(244, 239, 230, 0.7);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.finger-status-tag {
+  margin-top: 6px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  color: #E6392F;
+}
+
+/* JEU 3 : DÉTECTEUR DE CREVETTE AR */
+.shrimp-ar-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.shrimp-ar-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px dashed #E6392F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: rgba(230, 57, 47, 0.08);
+  animation: radarScan 4s linear infinite;
+}
+
+.shrimp-ar-circle.fixed {
+  border-color: #00A86B;
+  border-style: solid;
+  background: rgba(0, 168, 107, 0.12);
+  animation: none;
+}
+
+.shrimp-emoji {
+  font-size: 54px;
+  transition: transform 0.3s ease;
+}
+
+.shrimp-readout {
+  text-align: center;
+}
+
+.shrimp-level-txt {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #E6392F;
+}
+
+.shrimp-sub-txt {
+  font-size: 10px;
+  color: rgba(244, 239, 230, 0.6);
+}
+
+/* JEU 4 : CAPTCHA HERBE */
+.captcha-box {
+  width: 100%;
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.captcha-header {
+  margin-bottom: 8px;
+}
+
+.captcha-title {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #00A86B;
+}
+
+.captcha-sub {
+  font-size: 10px;
+  color: rgba(244, 239, 230, 0.7);
+}
+
+.captcha-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.captcha-cell {
+  background: #1C1F26;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.captcha-cell span {
+  font-size: 22px;
+}
+
+.captcha-cell small {
+  font-size: 8px;
+  color: rgba(244, 239, 230, 0.6);
+  font-weight: 700;
+}
+
+.captcha-cell.selected {
+  border-color: #00A86B;
+  background: rgba(0, 168, 107, 0.2);
+}
+
+/* CARTE DE RÉCOMPENSE PUNCHLINE REVEAL */
+.happening-reward-card {
+  width: 100%;
+  background: #141619;
+  border: 1px solid rgba(0, 168, 107, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 168, 107, 0.15);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  text-align: center;
+  margin-top: 10px;
+  animation: fadeInReward 0.3s ease-out;
+}
+
+@keyframes fadeInReward {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.h-reward-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #00A86B;
+  margin-bottom: 6px;
+}
+
+.h-reward-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #F4EFE6;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.h-reward-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* CARTE 1 BIS : LE DAILY SHOT D'ESPRIT (Wholesome & Piquant) */
+.transit-daily-shot-card {
+  background: linear-gradient(135deg, rgba(245, 184, 0, 0.08) 0%, rgba(20, 22, 25, 0.95) 100%);
+  border: 1px solid rgba(245, 184, 0, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+
+.daily-shot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.daily-shot-title-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #F5B800;
+}
+
+.btn-refresh-shot {
+  background: rgba(245, 184, 0, 0.15);
+  border: 1px solid rgba(245, 184, 0, 0.3);
+  color: #F5B800;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-refresh-shot:hover {
+  background: rgba(245, 184, 0, 0.25);
+}
+
+.daily-shot-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #F4EFE6;
+  font-style: italic;
+  margin: 6px 0 10px 0;
+  transition: opacity 0.2s ease;
+}
+
+.daily-shot-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 6px;
+}
+
+.daily-shot-author {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: rgba(244, 239, 230, 0.5);
+  letter-spacing: 0.06em;
+}
+
+.btn-share-shot {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #F4EFE6;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-share-shot:hover {
+  border-color: #F5B800;
+  color: #F5B800;
+}
+
+/* ==========================================================================
+   ÉCRAN 8 : LE COFFRE AUX PÉPITES (VAULT)
+   ========================================================================== */
+.vault-body {
+  padding: 12px 16px;
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
+.vault-stats-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.v-stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #F5B800;
+  display: block;
+}
+
+.v-stat-lbl {
+  font-size: 8.5px;
+  color: rgba(244, 239, 230, 0.5);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.vault-filters-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.v-pill {
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(244, 239, 230, 0.6);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.v-pill.active {
+  background: #F4EFE6;
+  color: #0B0B0C;
+}
+
+.vault-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vault-card {
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.vault-card:hover {
+  border-color: rgba(245, 184, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.vault-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.vault-card-cat {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #F5B800;
+}
+
+.vault-card-date {
+  font-size: 8.5px;
+  color: rgba(244, 239, 230, 0.4);
+}
+
+.vault-card-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #F4EFE6;
+  margin-bottom: 6px;
+}
+
+.vault-card-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vault-card-title {
+  font-size: 9px;
+  color: rgba(244, 239, 230, 0.5);
+  font-weight: 700;
+}
+
+.btn-vault-share {
+  background: transparent;
+  border: none;
+  color: #F5B800;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   MODALE EXPORT UGC STORY (FORMAT 9:16)
+   ========================================================================== */
+.ugc-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 150;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.ugc-modal-content {
+  width: 100%;
+  max-width: 320px;
+  background: #0B0B0C;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ugc-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ugc-modal-header h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #F4EFE6;
+  margin: 0;
+}
+
+.btn-close-modal {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #F4EFE6;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ugc-story-frame-preview {
+  width: 100%;
+  aspect-ratio: 9/14;
+  background: #141619;
+  border: 2px solid #F4EFE6;
+  border-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.ugc-top-pill {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #F4EFE6;
+  text-align: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+}
+
+.ugc-quote-body {
+  position: relative;
+  padding: 10px 4px;
+}
+
+.ugc-quote-mark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: #E6392F;
+  line-height: 0.8;
+  display: block;
+}
+
+.ugc-quote-txt {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #FFFFFF;
+}
+
+.ugc-perforated-strip {
+  border-top: 2px dashed rgba(255, 255, 255, 0.25);
+  margin: 8px 0;
+}
+
+.ugc-ticket-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ugc-lbl {
+  font-size: 7.5px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+}
+
+.ugc-val {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #F4EFE6;
+}
+
+.ugc-stamp-badge {
+  position: absolute;
+  bottom: 35px;
+  right: 15px;
+  border: 2px solid #00A86B;
+  color: #00A86B;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transform: rotate(-10deg);
+  background: rgba(11, 11, 12, 0.9);
+}
+
+.ugc-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   BARRE DE NAVIGATION BASSE NATIVE IOS (TAB BAR)
+   ========================================================================== */
+.ios-bottom-tab-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(14, 16, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px 6px 14px 6px;
+  z-index: 100;
+}
+
+.ios-tab-item {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  color: rgba(244, 239, 230, 0.4);
+  flex: 1;
+}
+
+.ios-tab-item .tab-icon {
+  font-size: 17px;
+  transition: transform 0.15s ease;
+}
+
+.ios-tab-item .tab-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+
+.ios-tab-item:hover {
+  color: #F4EFE6;
+}
+
+.ios-tab-item.active {
+  color: #F4EFE6;
+}
+
+.ios-tab-item.active .tab-icon {
+  transform: scale(1.18);
+}
+
+.ios-tab-item.active .tab-label {
+  color: #F5B800;
+}
+
+/* Ajustement du padding bas des écrans pour la Tab Bar */
+.dash-scrollable,
+.vault-body,
+.happening-body {
+  padding-bottom: 75px !important;
+}

@@ -1,0 +1,768 @@
+/* 08_music_os.css — Music OS et lecteurs matériels
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   MUSIC OS & SWISS STANDARDS — TRANSIT STACK & HARDWARE PLAYERS
+   ========================================================================== */
+
+/* 1. TOKENS COLORS PALETTE */
+.bg-orange { background: #F97316 !important; color: #FFFFFF !important; }
+.bg-lavender { background: #C4B5FD !important; color: #1E1B4B !important; }
+.bg-coral { background: #FB7185 !important; color: #FFFFFF !important; }
+.bg-sand { background: #D6D3D1 !important; color: #1C1917 !important; }
+.bg-amber { background: #F59E0B !important; color: #FFFFFF !important; }
+.bg-mint { background: #34D399 !important; color: #064E3B !important; }
+.bg-lemon { background: #FEF08A !important; color: #713F12 !important; }
+.bg-rose { background: #FBCFE8 !important; color: #831843 !important; }
+.bg-ochre { background: #D97706 !important; color: #FFFFFF !important; }
+.bg-emerald { background: #00A86B !important; color: #FFFFFF !important; }
+.bg-grey { background: #E5E7EB !important; color: #111827 !important; }
+.bg-khaki { background: #CBD5E1 !important; color: #1E293B !important; }
+.bg-yellow { background: #FACC15 !important; color: #1A1A1A !important; }
+.bg-cyan { background: #22D3EE !important; color: #164E63 !important; }
+
+/* 2. THE TRANSIT STACK HERO SCREEN */
+.transit-stack-screen {
+  background: #F4F1EA !important;
+  color: #121316 !important;
+  padding: 38px 16px 20px 16px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+body:not([data-theme="light"]) .transit-stack-screen {
+  background: #0E1013 !important;
+  color: #F4EFE6 !important;
+}
+
+.transit-stack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.stack-main-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.stack-sub-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(18, 19, 22, 0.45);
+}
+
+body:not([data-theme="light"]) .stack-sub-title {
+  color: rgba(244, 239, 230, 0.45);
+}
+
+.btn-station-dropdown {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  color: inherit;
+}
+
+body:not([data-theme="light"]) .btn-station-dropdown {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.transit-cards-stack-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 8px;
+}
+
+.music-transit-card {
+  border-radius: 24px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.music-transit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.music-transit-card:active {
+  transform: scale(0.98);
+}
+
+.card-emerald {
+  background: #00A86B;
+  color: #FFFFFF;
+}
+
+.card-sand {
+  background: #D4CEBF;
+  color: #18181B;
+}
+
+.card-vermilion {
+  background: #E6392F;
+  color: #FFFFFF;
+}
+
+.card-kraft-ticket {
+  background: #FAF8F5;
+  border: 2px dashed rgba(0, 0, 0, 0.15);
+  color: #18181B;
+}
+
+body:not([data-theme="light"]) .card-kraft-ticket {
+  background: #191B20;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #F4EFE6;
+}
+
+.m-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.m-card-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.m-card-author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 2px;
+  display: block;
+}
+
+.m-card-bookmark-btn, .btn-kraft-refresh-mini {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.m-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 14px;
+}
+
+.m-tokens-row {
+  display: flex;
+  gap: 6px;
+}
+
+.m-token-bullet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.m-card-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.m-giant-arrow {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.m-giant-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+/* 3. ANALOG SCRUBBER RULER AT BOTTOM */
+.analog-scrubber-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0 4px 0;
+  margin-top: auto;
+}
+
+.ruler-tool-icon {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+body:not([data-theme="light"]) .ruler-tool-icon {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ruler-scale-box {
+  flex: 1;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:not([data-theme="light"]) .ruler-scale-box {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ruler-ticks-track {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 6px);
+}
+
+body:not([data-theme="light"]) .ruler-ticks-track {
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0px, rgba(255,255,255,0.18) 1px, transparent 1px, transparent 6px);
+}
+
+.ruler-needle-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #E6392F;
+  box-shadow: 0 0 6px #E6392F;
+}
+
+.ruler-caption {
+  position: relative;
+  z-index: 2;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1px 6px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+body:not([data-theme="light"]) .ruler-caption {
+  background: rgba(18, 20, 25, 0.9);
+  color: #FFFFFF;
+}
+
+/* 4. 12-BUTTONS SUBWAY TOKENS GRID (KEYPAD) */
+.subway-tokens-grid-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 14px 20px 14px;
+}
+
+.music-os-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 38px 18px 10px 18px;
+}
+
+.music-os-brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.music-os-mode {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.btn-music-os-close {
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 800;
+}
+
+.subway-tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.token-btn {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.token-btn:hover {
+  transform: scale(1.05);
+}
+
+.token-btn:active {
+  transform: scale(0.92);
+}
+
+.token-txt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.analog-jog-wheel-box {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 14px;
+}
+
+.jog-wheel-center-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.1s ease;
+}
+
+.jog-wheel-center-btn:active {
+  transform: scale(0.92);
+}
+
+.jog-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.jog-skip-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.jog-status-lbl {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+/* 5. TEENAGE ENGINEERING MONOCHROMATIC HARDWARE PLAYER */
+.hardware-player-screen {
+  background: #E5E0D8 !important;
+  color: #121316 !important;
+  padding: 38px 20px 24px 20px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.hardware-player-screen.theme-vermilion {
+  background: #E6392F !important;
+  color: #FFFFFF !important;
+}
+
+.te-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.te-screen-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.te-proto-source {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.te-close-btn {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Speaker Grill */
+.te-speaker-grill-box {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.te-speaker-grill {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 14px;
+  border-radius: 50%;
+}
+
+.grill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
+  transition: all 0.3s ease;
+}
+
+.theme-vermilion .grill-dot {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.grill-dot.active {
+  transform: scale(1.4);
+  background: #FACC15 !important;
+  box-shadow: 0 0 6px #FACC15;
+}
+
+/* Slotted Grill */
+.te-speaker-grill-slotted {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 12px;
+}
+
+.slotted-line {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.slotted-line.active {
+  background: #FACC15;
+  box-shadow: 0 0 6px #FACC15;
+}
+
+.te-time-readout-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 10px 0 16px 0;
+}
+
+.te-time-countdown {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.te-time-total {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  opacity: 0.7;
+}
+
+/* Knobs 2x2 Grid */
+.te-knobs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.te-knob-cell {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-vermilion .te-knob-cell {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.te-hardware-knob {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #111317;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.15), 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.te-hardware-knob:active {
+  transform: rotate(25deg);
+}
+
+.knob-yellow-indicator {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FACC15;
+  box-shadow: 0 0 4px #FACC15;
+}
+
+.ind-1 { top: 10px; right: 10px; }
+.ind-2 { bottom: 12px; right: 10px; }
+.ind-3 { bottom: 10px; left: 12px; }
+.ind-4 { top: 12px; left: 10px; }
+
+.knob-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0.75;
+}
+
+.btn-te-pulse-action {
+  width: 100%;
+  background: #111317;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.theme-vermilion .btn-te-pulse-action {
+  background: #FFFFFF;
+  color: #E6392F;
+}
+
+/* 6. GIANT ARROW SHIELD SCREEN */
+.shield-giant-arrow-screen {
+  background: #D32F2F;
+  color: #FFFFFF;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 38px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.giant-bg-arrow-svg {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 80%;
+  height: 80%;
+  pointer-events: none;
+}
+
+.shield-red-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.shield-carrier-txt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.shield-station-token-bullet {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.shield-red-content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.shield-huge-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0 0 6px 0;
+}
+
+.shield-artist-sub {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.85;
+  margin: 0 0 24px 0;
+}
+
+.shield-crosshair-slider {
+  margin-bottom: 20px;
+}
+
+.slider-crosshair-rail {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  position: relative;
+  border-radius: 2px;
+}
+
+.slider-crosshair-fill {
+  width: 35%;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+.slider-crosshair-thumb {
+  position: absolute;
+  top: -8px;
+  left: 35%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FACC15;
+  color: #1A1A1A;
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.slider-timestamps {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.shield-transport-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  gap: 8px;
+}
+
+.btn-transport-pill {
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 6px;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-transport-pill.center-primary {
+  background: #FFFFFF;
+  color: #D32F2F;
+}
+
+.btn-transport-pill:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}

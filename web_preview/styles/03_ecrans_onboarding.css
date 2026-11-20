@@ -1,0 +1,579 @@
+/* 03_ecrans_onboarding.css — Écrans 0 à 2 : transit map, quiz, diagnostic
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   ÉCRAN 0 & 1 : SYSTÈME SIGNALÉTIQUE TRANSIT MAP (FIGMA / VIGNELLI)
+   ========================================================================== */
+.transit-network-screen {
+  background: #0B0B0C !important;
+  color: #F4EFE6 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 16px 20px 16px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.transit-network-header {
+  text-align: center;
+  margin-top: 6px;
+  z-index: 10;
+}
+
+.transit-display-title {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  font-size: 34px;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: #F4EFE6;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0;
+}
+
+.transit-display-title.main-q {
+  font-size: 38px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+}
+
+.transit-sub-instruction {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #A0A6B2;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* CARTE RADIALE TRANSIT (HUB YOU) */
+.transit-radial-map-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 270px;
+  margin: 6px 0;
+  user-select: none;
+}
+
+.radial-transit-svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
+  animation: transitMapFadeIn 0.5s ease-out;
+}
+
+@keyframes transitMapFadeIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.transit-station-node {
+  transition: r 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.transit-station-node:hover {
+  r: 7;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+}
+
+.transit-node-txt {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  fill: #8E95A5;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.transit-center-hub {
+  filter: drop-shadow(0 0 12px rgba(244, 239, 230, 0.25));
+}
+
+.transit-you-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  fill: #8E95A5;
+  text-transform: uppercase;
+}
+
+/* Pagination Transit & Contrôles Zoom */
+.transit-nav-indicators {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  z-index: 10;
+}
+
+.transit-stepper-dash {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.step-dash {
+  width: 18px;
+  height: 3px;
+  background: #23252B;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+}
+
+.step-dash.active {
+  background: #F4EFE6;
+}
+
+.transit-zoom-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  background: transparent;
+  border: none;
+}
+
+.transit-zoom-trigger:hover {
+  opacity: 1;
+}
+
+.transit-zoom-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #F4EFE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #141619;
+}
+
+.tz-inner-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #F4EFE6;
+}
+
+.tz-caption {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #70757E;
+  text-transform: uppercase;
+}
+
+/* Bouton Primaire Ivoire Transit */
+.transit-bottom-action {
+  width: 100%;
+  margin-top: auto;
+  z-index: 10;
+}
+
+.btn-transit-ivory {
+  width: 100%;
+  background: #F4EFE6;
+  color: #0B0B0C;
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-transit-ivory:hover {
+  background: #E8E2D5;
+  transform: translateY(-1px);
+}
+
+.btn-transit-ivory:active {
+  transform: scale(0.99);
+}
+
+/* ÉCRAN 1 : CHOIX DE DESTINATION TRANSIT */
+.transit-track-header {
+  margin-top: 8px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.track-progress-rail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 220px;
+}
+
+.t-node {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid #5A606D;
+  background: transparent;
+}
+
+.t-node.active {
+  background: #F4EFE6;
+  border-color: #F4EFE6;
+}
+
+.t-rail {
+  flex: 1;
+  height: 2px;
+  background: #272B33;
+}
+
+.track-subtitle {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #70757E;
+  text-transform: uppercase;
+}
+
+.transit-question-block {
+  margin-bottom: 20px;
+}
+
+.transit-question-sub {
+  font-size: 13px;
+  color: #8E95A5;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* GRILLE DES 4 LIGNES DE MÉTRO (F, S, N, M) */
+.transit-metro-lines-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 18px;
+  justify-items: center;
+  margin: 12px 0;
+}
+
+.metro-line-disc-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  outline: none;
+}
+
+.metro-line-disc-btn:hover {
+  transform: translateY(-2px);
+}
+
+.metro-circle-badge {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.metro-line-disc-btn.active .metro-circle-badge {
+  box-shadow: 0 0 0 3px #0B0B0C, 0 0 0 6px #F4EFE6;
+  transform: scale(1.06);
+}
+
+.bg-red { background: #E6392F !important; }
+.bg-blue { background: #0066CC !important; }
+.bg-green { background: #00A86B !important; }
+.bg-yellow { background: #F5B800 !important; }
+
+.metro-badge-letter {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.bg-yellow .metro-badge-letter {
+  color: #0B0B0C !important;
+}
+
+.metro-badge-caption {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #F4EFE6;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ÉCRAN 1 : QUIZ ONBOARDING (AIGUILLAGE TRANSIT)
+   ========================================================================== */
+.quiz-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  margin-bottom: 8px;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.transit-subline-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.transit-pill-code {
+  font-size: 8.5px;
+  font-weight: 800;
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.transit-route-name {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.btn-group-pill {
+  display: flex;
+  gap: 6px;
+}
+
+.pill-opt {
+  flex: 1;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 7px 0;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-align: center;
+}
+
+.pill-opt.active {
+  background: var(--surface-interactive);
+  border-color: var(--border-strong);
+  color: #FFFFFF;
+}
+
+.targets-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.target-chip {
+  padding: 8px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-btn);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-align: center;
+}
+
+.target-chip.full-span {
+  grid-column: span 2;
+}
+
+.target-chip.active {
+  background: var(--surface-interactive);
+  border-color: var(--border-strong);
+  color: #FFFFFF;
+}
+
+.dosage-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.dosage-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.dosage-card.active {
+  background: var(--surface-interactive);
+  border-color: var(--border-strong);
+}
+
+.dosage-radio {
+  accent-color: var(--accent-red);
+}
+
+.dosage-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dosage-sub {
+  font-size: 9.5px;
+  color: var(--text-muted);
+}
+
+.screen-bottom-action {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* ==========================================================================
+   ÉCRAN 2 : RÉSULTAT DIAGNOSTIC BIO-ÂGE & ORDONNANCE
+   ========================================================================== */
+.result-center-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tag-pill {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.tag-pill.emerald {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.highlight-card {
+  border-color: var(--border-strong);
+  background: var(--surface-card);
+}
+
+.age-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 0;
+}
+
+.age-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.age-lbl {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.age-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+.age-num.rose-txt {
+  color: var(--accent-red);
+}
+
+.age-arrow {
+  color: var(--accent-red);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 8px 0;
+}
+
+.vitality-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vitality-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vitality-val {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.insight-box {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}

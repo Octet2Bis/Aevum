@@ -1,0 +1,1206 @@
+/* 09_agave_modales.css — Dashboard Agave et modales transit
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   AEVUM — SYSTEME AGAVE DASHBOARD & MODALES (SWISS TRANSIT POSTER AESTHETICS)
+   Inspiration : Civil / Platform 08, Tickets Barbapapà, Swiss Craft
+   ========================================================================== */
+
+:root {
+  --transit-orange: #FF4400;
+  --transit-green: #00C853;
+  --transit-teal: #008080;
+  --transit-amber: #FF8C00;
+  --transit-charcoal: #121216;
+  --transit-card-bg: #1A1A22;
+  --transit-mastic: #E0DFDB;
+}
+
+/* --- SECTION PRINCIPALE DASHBOARD AGAVE (SWISS TRANSIT GRID) --- */
+.agave-dashboard-screen {
+  padding: 14px 12px 90px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  background: #0D0D10;
+}
+
+/* 1. STREAK CARD DE CONNEXION (STYLE PLATFORM 08) */
+.agave-streak-card.swiss-platform-card {
+  background: #18181D;
+  border: 1.5px solid #1F2022;
+  border-radius: 0px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.agave-streak-card.swiss-platform-card:hover {
+  transform: translateY(-2px);
+  border-color: #FF4400;
+}
+
+.swiss-banner-orange {
+  background: #FF4400;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform-left-col {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.platform-lbl {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.platform-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-giant-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.streak-schedule-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #111115;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.06);
+}
+
+.schedule-entry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+}
+
+.sch-time {
+  font-weight: 700;
+  color: #E3E4DF;
+  font-variant-numeric: tabular-nums;
+}
+
+.sch-city {
+  font-weight: 500;
+  color: #FFFFFF;
+  flex: 1;
+}
+
+.sch-badge.done {
+  color: #00B75F;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.sch-badge.pending {
+  color: #FF8C00;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.streak-days-capsules {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 10px 14px;
+  background: #18181D;
+}
+
+.day-capsule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 0px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.day-capsule.checked {
+  background: #00B75F;
+  border-color: #00B75F;
+  color: #1F2022;
+}
+
+.day-capsule.checked .check-mark {
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.day-capsule.checked .day-lbl {
+  font-size: 9px;
+  font-weight: 800;
+}
+
+/* 2. CARTE MAITRESSE : MON AGAVE (HERO GÉOMÉTRIQUE SUISSE) */
+.agave-hero-card.swiss-hero-card {
+  background: #18181D;
+  border: 1.5px solid #1F2022;
+  border-radius: 0px;
+  padding: 16px 14px 18px 14px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.agave-hero-card.swiss-hero-card:hover {
+  transform: translateY(-2px);
+  border-color: #00B75F;
+}
+
+.agave-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.agave-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  color: #00B75F;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.agave-main-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 2px 0 0 0;
+  letter-spacing: -0.03em;
+}
+
+.agave-sub-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.btn-agave-info {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Visuel Agave et Chips Satellites */
+.agave-radar-visual {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.agave-svg-art {
+  width: 100%;
+  height: 100%;
+  max-width: 270px;
+}
+
+.leaf-chip {
+  position: absolute;
+  background: #111116;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.leaf-chip .chip-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.leaf-chip .chip-pct {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+}
+
+.chip-top { top: 2px; left: 50%; transform: translateX(-50%); border-color: #FF4400; }
+.chip-top .chip-pct { color: #FF4400; }
+
+.chip-top-right { top: 42px; right: 4px; border-color: #008080; }
+.chip-top-right .chip-pct { color: #00B4D8; }
+
+.chip-bottom-right { bottom: 30px; right: 2px; border-color: #00B75F; }
+.chip-bottom-right .chip-pct { color: #00B75F; }
+
+.chip-bottom-left { bottom: 30px; left: 2px; border-color: #00B75F; }
+.chip-bottom-left .chip-pct { color: #00B75F; }
+
+.chip-top-left { top: 42px; left: 4px; border-color: #FF8C00; }
+.chip-top-left .chip-pct { color: #FF8C00; }
+
+/* 3. BENTO ACTIONS RAPIDES (STYLE BAGGAGE RECLAIM & GATE A 3) */
+.agave-bento-row.swiss-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.bento-action-card.swiss-card-baggage,
+.bento-action-card.swiss-card-gate {
+  background: #18181D;
+  border: 1.5px solid #1F2022;
+  border-radius: 0px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.bento-action-card.swiss-card-baggage:hover {
+  transform: translateY(-2px);
+  border-color: #FF4400;
+}
+
+.bento-action-card.swiss-card-gate:hover {
+  transform: translateY(-2px);
+  border-color: #00B75F;
+}
+
+.swiss-bento-header-orange {
+  background: #FF4400;
+  color: #FFFFFF;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.swiss-bento-header-orange .header-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.swiss-bento-header-orange .header-arrow {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.swiss-bento-header-white {
+  background: #E3E4DF;
+  color: #1F2022;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid #1F2022;
+}
+
+.swiss-bento-header-white .gate-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.swiss-bento-header-white .gate-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #1F2022;
+}
+
+.bento-media-thumb {
+  height: 75px;
+  background: #0E0E12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-play-btn-disc {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FF4400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  padding-left: 2px;
+}
+
+.video-mini-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: #FF4400;
+}
+
+.bento-game-thumb {
+  height: 75px;
+  background: #0E0E12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.gate-green-disc {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #00B75F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gate-giant-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #1F2022;
+  line-height: 1;
+}
+
+.bento-card-info {
+  padding: 10px;
+}
+
+.bento-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.bento-card-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.3;
+  margin: 3px 0 0 0;
+}
+
+/* HORLOGE FERROVIAIRE SUISSE (MODALE DE DÉCOMPRESSION) */
+.swiss-clock-canvas {
+  height: 200px !important;
+  background: #0A0A0D !important;
+  padding: 12px;
+}
+
+.swiss-clock-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiss-analog-clock-svg {
+  width: 155px;
+  height: 155px;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.7));
+}
+
+/* ==========================================================================
+   STYLES DES 4 MODALES TRANSIT SWISS (OVERLAYS NÉOPRÉCISE)
+   ========================================================================== */
+
+.agave-modal {
+  position: absolute;
+  inset: 0;
+  background: #0C0C10;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-nav-header {
+  height: 48px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111116;
+}
+
+.btn-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-modal-close:hover {
+  background: var(--transit-orange);
+  color: #FFFFFF;
+}
+
+.modal-top-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.modal-scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px 40px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* MODALE 1 : SUIVI AGAVE */
+.suivi-agave-head {
+  text-align: left;
+}
+
+.suivi-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.suivi-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.agave-satellites-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sat-gauge-card {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sat-gauge-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.sat-gauge-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.sat-progress-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.sat-progress-fill {
+  height: 100%;
+  background: var(--transit-green);
+  border-radius: 999px;
+}
+
+.card-orange .sat-progress-fill { background: var(--transit-orange); }
+.card-teal .sat-progress-fill { background: var(--transit-teal); }
+.card-green .sat-progress-fill { background: var(--transit-green); }
+
+.sat-pct {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.detail-stats-section {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.stats-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.stats-section-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 2px 0 12px 0;
+}
+
+.stats-list-container {
+  display: flex;
+  flex-direction: column;
+  divide-y: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stat-row-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-icon-box {
+  width: 32px;
+  font-size: 16px;
+}
+
+.stat-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-row-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.stat-row-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.stat-row-val-col {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-row-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.stat-row-arrow {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.stats-footer-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* MODALE 2 : STREAK & BADGES */
+.streak-detail-hero {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.streak-detail-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.streak-giant-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.streak-giant-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.streak-giant-bolt {
+  font-size: 38px;
+  color: var(--transit-orange);
+}
+
+.streak-detail-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.streak-calendar-box {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.cal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cal-month-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.cal-nav-btn {
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.cal-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.cal-day {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+.cal-day.faded { opacity: 0.2; }
+
+.cal-day.connected {
+  background: var(--transit-green);
+  color: #000000;
+  font-weight: 900;
+}
+
+.cal-legend-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.leg-item { display: flex; align-items: center; gap: 6px; }
+.leg-dot { width: 10px; height: 10px; border-radius: 3px; }
+.leg-dot.filled { background: var(--transit-green); }
+.leg-dot.outline { border: 1.5px solid rgba(255, 255, 255, 0.2); }
+
+.rewards-section {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.rewards-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0 0 12px 0;
+}
+
+.badges-carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.badge-item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.badge-item-card.unlocked .badge-icon-disc {
+  background: rgba(255, 68, 0, 0.15);
+  border-color: var(--transit-orange);
+}
+
+.badge-item-card.locked { opacity: 0.4; }
+
+.badge-icon-disc {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.badge-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.badge-date {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* MODALE 3 : VIDÉO -> ARTICLE */
+.decompression-video-player {
+  background: #000000;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-canvas-placeholder {
+  height: 180px;
+  background: linear-gradient(180deg, #1C1C24 0%, #0D0D12 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+.video-center-pause {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.video-auto-notice {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--transit-orange);
+  background: rgba(255, 68, 0, 0.15);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.video-controls-bar {
+  padding: 10px 14px;
+  background: #14141A;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vid-ctrl-icon {
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+.video-progress-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.video-progress-fill {
+  height: 100%;
+  background: var(--transit-orange);
+}
+
+.video-timer-txt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.transition-dotted-divider {
+  border-top: 2px dashed rgba(255, 68, 0, 0.5);
+  margin: 10px 0;
+  text-align: center;
+  position: relative;
+}
+
+.divider-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--transit-orange);
+  background: #0C0C10;
+  padding: 0 8px;
+  position: relative;
+  top: -9px;
+  text-transform: uppercase;
+}
+
+.decompression-article-body {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.article-main-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.article-meta-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--transit-green);
+  margin-bottom: 16px;
+}
+
+.article-paragraphs p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  color: #D1D1D6;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* MODALE 4 : MINI-JEU MEMORY 4x4 */
+.memory-status-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mem-stat-card {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+}
+
+.mem-stat-lbl {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.mem-stat-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.memory-grid-wrapper {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.memory-cell-btn {
+  aspect-ratio: 1;
+  background: #111116;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.memory-cell-btn:hover {
+  border-color: var(--transit-green);
+  transform: scale(1.03);
+}
+
+.memory-cell-btn.revealed {
+  background: var(--transit-green);
+  color: #000000;
+  border-color: var(--transit-green);
+}
+
+.memory-controls-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-memory-ctrl {
+  background: var(--transit-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-memory-ctrl:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   MODALE FLOTTANTE ARCHITECTURE & ÉTAT SYSTÈME (POP-UP ÉPURÉE)
+   ========================================================================== */
+.system-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.system-modal-overlay.hidden {
+  display: none !important;
+}
+
+.system-modal-content {
+  background: var(--surface-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 440px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 20px;
+  color: var(--text-primary);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.system-modal-content .sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.system-modal-content .sidebar-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.system-modal-content .sim-panel-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.system-modal-content .sim-panel-card h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.system-modal-content .state-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.system-modal-content .state-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.system-modal-content .layer-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.system-modal-content .small-txt {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

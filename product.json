@@ -1,0 +1,13 @@
+{
+  "id": "aevum",
+  "name": "Aevum iOS",
+  "kind": "product",
+  "serves": ["dev", "gtm"],
+  "status": "en-assemblage",
+  "stack": "swift",
+  "entry": "AevumApp/App",
+  "surfaces": ["ios-native", "web-preview"],
+  "depends_on": [],
+  "gates": ["portes", "lines", "no-inline-data", "sha256-parity"],
+  "notes": "serves inclut gtm pour la fiche ASO (APP_STORE_METADATA.md), livrable marketing porte par le produit. Statut en-assemblage : le Swift n'a jamais été compilé ni testé (aucun run du workflow iOS)."
+}

@@ -1,0 +1,597 @@
+/* 06_composants_transit.css — Composants : cadran, sticker, ligne de métro, billet, split-flap
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   COMPOSANT 1 : LE CADRAN CIRCADIEN ÉMAILLÉ (Swiss Transit Dial)
+   ========================================================================== */
+.circadian-dial-card {
+  background: #121417;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.dial-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dial-live-time {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #E6392F;
+  letter-spacing: 0.04em;
+}
+
+.dial-center-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.dial-ring-container {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dial-svg-clock {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.dial-bg-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 8;
+}
+
+.dial-arc {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.arc-morning { stroke: #F5B800; }
+.arc-peak { stroke: #E6392F; }
+.arc-evening { stroke: #00A86B; }
+.arc-night { stroke: #0066CC; }
+
+.dial-needle {
+  stroke: #E6392F;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: transform 0.5s ease;
+}
+
+.dial-needle-tip {
+  fill: #E6392F;
+  filter: drop-shadow(0 0 4px #E6392F);
+}
+
+.dial-hub {
+  fill: #FFFFFF;
+}
+
+.dial-inner-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.dial-score-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+}
+
+.dial-score-caption {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: rgba(244, 239, 230, 0.4);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.dial-delta-pill {
+  margin-top: 6px;
+  background: rgba(230, 57, 47, 0.15);
+  border: 1px solid rgba(230, 57, 47, 0.4);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delta-label {
+  font-size: 7.5px;
+  font-weight: 800;
+  color: rgba(230, 57, 47, 0.8);
+}
+
+.delta-val {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9.5px;
+  font-weight: 900;
+  color: #E6392F;
+}
+
+.dial-footer-insight {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: rgba(244, 239, 230, 0.7);
+}
+
+.dial-alert-arrow {
+  color: #E6392F;
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   COMPOSANT 4 : LA CARTE DAILY SHOT STICKER ÉTAGÉ (Kraft Incliné)
+   ========================================================================== */
+.daily-shot-kraft-card {
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kraft-pin-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.kraft-category-txt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F5B800;
+}
+
+.kraft-streak-badge {
+  font-size: 9px;
+  font-weight: 800;
+  background: rgba(245, 184, 0, 0.15);
+  border: 1px solid rgba(245, 184, 0, 0.3);
+  color: #F5B800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.kraft-sticker-body {
+  background: #F4EFE6;
+  color: #121216;
+  border-radius: 10px;
+  padding: 14px 14px 18px 14px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.65);
+  position: relative;
+  margin: 6px 4px 14px 4px;
+  transition: transform 0.2s ease;
+}
+
+.kraft-sticker-body:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.kraft-quote-txt {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #121216;
+  font-style: italic;
+}
+
+.kraft-stamp-badge {
+  position: absolute;
+  bottom: -8px;
+  right: 10px;
+  border: 2px solid #E6392F;
+  color: #E6392F;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transform: rotate(8deg);
+  background: #F4EFE6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.kraft-actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-kraft-refresh,
+.btn-kraft-share {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F4EFE6;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.btn-kraft-refresh:hover {
+  background: rgba(245, 184, 0, 0.15);
+  border-color: #F5B800;
+  color: #F5B800;
+}
+
+.btn-kraft-share:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   COMPOSANT 2 : LA LIGNE DE MÉTRO CORPORELLE (Metro Map Tracker)
+   ========================================================================== */
+.metro-transit-tracker-card {
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.metro-tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.metro-tracker-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(244, 239, 230, 0.5);
+}
+
+.metro-line-code-badge {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #FFFFFF;
+}
+
+.metro-rail-visual {
+  position: relative;
+  padding: 6px 0 10px 0;
+}
+
+.metro-physical-rail {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  right: 12px;
+  height: 4px;
+  background: #272732;
+  border-radius: 2px;
+}
+
+.metro-stations-list {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.metro-station-node-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.node-bullet {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #141619;
+  border: 2px solid #272732;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.node-bullet.checked {
+  background: #00A86B;
+  border-color: #00A86B;
+  color: #FFFFFF;
+}
+
+.node-bullet.pulse-red {
+  background: #E6392F;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  animation: pulse-node 1.5s infinite;
+}
+
+@keyframes pulse-node {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 47, 0.6); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(230, 57, 47, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 47, 0); }
+}
+
+.node-time {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  color: rgba(244, 239, 230, 0.4);
+  font-weight: 700;
+}
+
+.node-title {
+  font-size: 8.5px;
+  font-weight: 800;
+  color: rgba(244, 239, 230, 0.6);
+}
+
+.red-txt {
+  color: #E6392F !important;
+  font-weight: 900 !important;
+}
+
+.metro-xp-bar-strip {
+  margin-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+
+.xp-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8.5px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.xp-lvl-txt {
+  color: #F5B800;
+}
+
+.xp-pts-txt {
+  font-family: 'Space Grotesk', monospace;
+  color: rgba(244, 239, 230, 0.5);
+}
+
+.xp-track-bg {
+  height: 4px;
+  background: #272732;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.xp-fill-rail {
+  height: 100%;
+  background: linear-gradient(90deg, #F5B800, #E6392F);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   COMPOSANT 3 : LE BILLET DE TRANSIT PERFORÉ (Ticket Card)
+   ========================================================================== */
+.perforated-ticket-card {
+  position: relative;
+  background: #141619;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.ticket-notch {
+  position: absolute;
+  top: 58%;
+  width: 14px;
+  height: 14px;
+  background: var(--surface-bg);
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.notch-left { left: -7px; }
+.notch-right { right: -7px; }
+
+.ticket-meta-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.t-badge-category {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #00A86B;
+}
+
+.t-badge-duration {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  background: rgba(0, 168, 107, 0.15);
+  border: 1px solid rgba(0, 168, 107, 0.3);
+  color: #00A86B;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ticket-proto-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.ticket-anatomy-source {
+  font-size: 10px;
+  line-height: 1.4;
+  color: rgba(244, 239, 230, 0.6);
+}
+
+.ticket-perforated-divider {
+  border-top: 2px dashed rgba(255, 255, 255, 0.14);
+  margin: 12px -16px;
+}
+
+.btn-ticket-board-action {
+  width: 100%;
+  background: #E6392F;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12.5px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #991B1B;
+  transition: all 0.1s ease;
+}
+
+.btn-ticket-board-action:hover {
+  background: #DC2626;
+}
+
+.btn-ticket-board-action:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #991B1B;
+}
+
+/* ==========================================================================
+   COMPOSANT 5 : PANNEAU SPLIT-FLAP DE DÉVIATION SHIELD
+   ========================================================================== */
+.split-flap-hazard-header {
+  background: repeating-linear-gradient(
+    -45deg,
+    #141619,
+    #141619 10px,
+    #272732 10px,
+    #272732 20px
+  );
+  border-bottom: 2px solid #E6392F;
+}
+
+.split-flap-display-board {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0 10px 0;
+}
+
+.split-flap-tile-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.split-flap-tile {
+  width: 38px;
+  height: 52px;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.flap-num {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 32px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.flap-crease {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
+}
+
+.flap-unit-txt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  color: #E6392F;
+  letter-spacing: 0.08em;
+  margin-left: 6px;
+}
+
+.btn-industrial-push {
+  background: #E6392F !important;
+  box-shadow: 0 4px 0 #991B1B !important;
+  transition: all 0.1s ease !important;
+}
+
+.btn-industrial-push:active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 2px 0 #991B1B !important;
+}

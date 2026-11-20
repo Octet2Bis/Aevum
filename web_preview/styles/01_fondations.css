@@ -1,0 +1,176 @@
+/* 01_fondations.css — Tokens, reset, règles globales
+   Extrait de index.css (5 769 lignes) le 14 septembre 2026.
+   L'ordre d'import dans index.css reproduit l'ordre d'origine : la cascade
+   en dépend, ne pas réordonner. */
+
+/* ==========================================================================
+   AEVUM DESIGN SYSTEM — CHARCOAL MATTE & SWISS CRAFT MONOCHROME
+   Design Industriel Épuré • Zéro AI-Slop • Accent Unique Rouge Signalétique
+   Inspiré des standards Dieter Rams, Massimo Vignelli, Linear et Teenage Engineering
+   ========================================================================== */
+
+:root {
+  /* --- SURFACES CHARBON MAT & TRANSIT SWISS (ZÉRO BLUR, ZÉRO DÉGRADÉ DÉCORATIF) --- */
+  --surface-bg: #09090B;           /* Fond de scène noir profond */
+  --surface-card: #121216;         /* Cartes principales */
+  --surface-elevated: #18181E;     /* Cartes imbriquées, contrôles, badges */
+  --surface-interactive: #22222B;  /* Survol & sélections neutres */
+
+  /* --- PALETTE SIGNALÉTIQUE TRANSIT MAP (MASSIMO VIGNELLI / FIGMA) --- */
+  --transit-ivory: #F4EFE6;
+  --transit-ivory-hover: #E8E2D5;
+  --line-red: #E6392F;
+  --line-blue: #0066CC;
+  --line-green: #00A86B;
+  --line-yellow: #F5B800;
+  --transit-dark: #0B0B0C;
+
+  /* --- TEXTE & TYPOGRAPHIE --- */
+  --text-primary: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  /* --- ACCENT UNIQUE : ROUGE SIGNALÉTIQUE (TEMPS PRÉSENT & ACTION) --- */
+  --accent-red: #DC2626;
+  --accent-red-hover: #B91C1C;
+  --accent-red-subtle: rgba(220, 38, 38, 0.12);
+
+  /* --- STRUCTURE & BORDURES PHYSIQUES 1PX (ZÉRO GLOW/HALO) --- */
+  --border-subtle: #272732;
+  --border-strong: #3F3F4E;
+  --highlight-top: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* --- GÉOMÉTRIE CONTRAINTE --- */
+  --radius-sm: 4px;
+  --radius-btn: 6px;
+  --radius-card: 8px;
+  --radius-pill: 9999px;
+
+  /* --- OMBRES ÉTAGÉES MINIMALES --- */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+  /* --- CHÂSSIS iPHONE SIMULATEUR --- */
+  --iphone-frame-bg: #11141A;
+  --iphone-frame-border: #272732;
+
+  --font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, -apple-system, sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Bebas Neue', 'Helvetica Neue', sans-serif;
+}
+
+[data-theme="light"] {
+  --surface-bg: #F4EFE6;
+  --surface-card: #FFFFFF;
+  --surface-elevated: #EBE4D5;
+  --surface-interactive: #DFD7C5;
+  --text-primary: #121216;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --border-subtle: #D8CEBD;
+  --border-strong: #BCB09A;
+  --iphone-frame-bg: #E2DBD0;
+  --iphone-frame-border: #BCB09A;
+}
+
+[data-theme="light"] .ios-bottom-tab-bar {
+  background: rgba(244, 239, 230, 0.96) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] .ios-tab-item {
+  color: rgba(18, 18, 22, 0.5) !important;
+}
+
+[data-theme="light"] .ios-tab-item.active {
+  color: #121216 !important;
+}
+
+[data-theme="light"] .ios-tab-item.active .tab-label {
+  color: #DC2626 !important;
+}
+
+[data-theme="light"] .bento-card,
+[data-theme="light"] .daily-shot-card,
+[data-theme="light"] .sim-panel-card {
+  background: #FFFFFF !important;
+  border-color: #D8CEBD !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+
+[data-theme="light"] .dash-greeting,
+[data-theme="light"] .daily-shot-quote,
+[data-theme="light"] .sim-brand-title {
+  color: #121216 !important;
+}
+
+.iphone-frame.no-frame {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.iphone-frame.no-frame .iphone-notch,
+.iphone-frame.no-frame .dynamic-island {
+  display: none !important;
+}
+
+.iphone-frame.no-frame .iphone-screen {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* ==========================================================================
+   RESET & FONDATIONS GLOBALES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--surface-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   RÈGLES D'ÉTANCHÉITÉ ET D'AFFICHAGE GLOBALES
+   ========================================================================== */
+.hidden {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.shield-native-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 12, 0.96);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+/* Typographie à Gravité (Titres denses et resserrés) */
+h1, h2, h3, h4, .screen-title, .dash-greeting, .challenge-title, .hero-num, .signboard-action-title, .sim-brand-title {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* Micro-labels & Badges en Majuscules Épurées */
+.transit-pill-code, .transit-route-name, .transit-line-tag, .tag-pill, .badge, .overline, .sign-direction-txt, .sign-platform-badge, .metro-badge, .station-code-txt, .sim-badge, .badge-level, .badge-time {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
