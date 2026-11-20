@@ -57,6 +57,10 @@ public struct MiniHappening: Identifiable, Codable {
     public let promptInstruction: String
     public let punchlineReward: String
     public let ugcBadgeTitle: String
+
+    /// XP credited when the happening is completed. Flat for every happening until the PRD
+    /// sets a rule (longevity protocols carry their own `xpReward`).
+    public var xpReward: Int { 10 }
     
     public init(
         id: String,

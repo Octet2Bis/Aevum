@@ -33,7 +33,10 @@ jobs:
       - name: Toolchain
         run: xcodebuild -version && swift --version
       - name: Generate the Xcode project
-        run: brew install xcodegen && xcodegen generate
+        run: |
+          brew install xcodegen && xcodegen generate
+          # Report every compile error in one run, not only the first failing file
+          defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool YES
       - name: Pick an iPhone simulator
         id: sim
         run: |
@@ -49,6 +52,7 @@ jobs:
           -destination "id=${{ steps.sim.outputs.udid }}"
           CODE_SIGNING_ALLOWED=NO build
       - name: Unit tests (catalogue, biological age, circadian engine)
+        if: ${{ !cancelled() && steps.sim.outcome == 'success' }}
         run: >
           xcodebuild -project Aevum.xcodeproj -scheme AevumTests
           -destination "id=${{ steps.sim.outputs.udid }}"

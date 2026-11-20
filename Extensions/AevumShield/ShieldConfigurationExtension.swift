@@ -7,6 +7,15 @@ import UIKit
 class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     
     override func configuration(shielding application: Application) -> ShieldConfiguration {
+        aevumShield()
+    }
+
+    override func configuration(shielding webDomain: WebDomain) -> ShieldConfiguration {
+        aevumShield()
+    }
+
+    // Le même écran pour une app ou un site bloqué.
+    private func aevumShield() -> ShieldConfiguration {
         return ShieldConfiguration(
             backgroundBlurStyle: .systemUltraThinMaterialDark,
             backgroundColor: UIColor(red: 0.03, green: 0.04, blue: 0.07, alpha: 0.96),
@@ -29,9 +38,5 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
                 color: UIColor(red: 0.39, green: 0.45, blue: 0.55, alpha: 1.0)
             )
         )
-    }
-    
-    override func configuration(shielding webDomain: WebDomain) -> ShieldConfiguration {
-        return configuration(shielding: Application(bundleIdentifier: "com.apple.mobilesafari")!)
     }
 }

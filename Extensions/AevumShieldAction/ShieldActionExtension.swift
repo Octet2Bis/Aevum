@@ -2,25 +2,28 @@ import ManagedSettings
 import UIKit
 
 // MARK: - Extension de Gestion des Clics sur le Shield
+// Le système appelle une méthode par type de cible bloquée : application ou catégorie
+// (jetons opaques ApplicationToken / ActivityCategoryToken), avec la même réponse.
 class ShieldActionExtension: ShieldActionDelegate {
-    
-    override func handle(action: ShieldAction, for application: Application, completionHandler: @escaping (ShieldActionResponse) -> Void) {
+
+    override func handle(action: ShieldAction, for application: ApplicationToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
+        completionHandler(response(to: action))
+    }
+
+    override func handle(action: ShieldAction, for category: ActivityCategoryToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
+        completionHandler(response(to: action))
+    }
+
+    private func response(to action: ShieldAction) -> ShieldActionResponse {
         switch action {
         case .primaryButtonPressed:
-            // Ouvre l'application Aevum via Custom URL Scheme pour lancer le défi
-            if let url = URL(string: "aevum://challenge?id=RESP-01") {
-                // Notifie le système de fermer le shield ou d'ouvrir l'app
-                completionHandler(.defer)
-            } else {
-                completionHandler(.close)
-            }
-            
+            // Laisse le shield en place : l'app Aevum prend le relais pour lancer le défi.
+            return .defer
         case .secondaryButtonPressed:
-            // L'utilisateur renonce à ouvrir l'app bloquée
-            completionHandler(.close)
-            
+            // L'utilisateur renonce à ouvrir l'app bloquée.
+            return .close
         @unknown default:
-            completionHandler(.close)
+            return .close
         }
     }
 }
